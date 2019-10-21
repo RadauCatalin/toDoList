@@ -11,7 +11,7 @@ import java.time.LocalDate;
 import java.util.List;
 
 public class App {
-    public static void main( String[] args ) throws SQLException, IOException, ClassNotFoundException {
+    public static void main(String[] args) throws SQLException, IOException, ClassNotFoundException {
 
         CreateToDoItemRequest request = new CreateToDoItemRequest();
         request.setDescription("Learn JDBC");
@@ -20,7 +20,7 @@ public class App {
         ToDoItemRepository toDoItemRepository = new ToDoItemRepository();
         //toDoItemRepository.createToDoItem(request);
 
-       // toDoItemRepository.updateToDoItem(2, true);
+        // toDoItemRepository.updateToDoItem(2, true);
         //toDoItemRepository.deleteTodoItem(2);
         List<ToDoItem> toDoItems = toDoItemRepository.getToDoItems();
 
