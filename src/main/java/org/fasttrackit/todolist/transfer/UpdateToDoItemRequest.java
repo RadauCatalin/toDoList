@@ -1,6 +1,7 @@
 package org.fasttrackit.todolist.transfer;
 
 public class UpdateToDoItemRequest {
+
     private boolean done;
 
     public boolean isDone() {

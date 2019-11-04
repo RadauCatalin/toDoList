@@ -8,10 +8,12 @@ import java.sql.SQLException;
 import java.util.Properties;
 
 public class DataBaseConfiguration {
+
     public static Connection getConnection() throws IOException, SQLException, ClassNotFoundException {
         Properties properties = new Properties();
 
-        InputStream inputStream = DataBaseConfiguration.class.getClassLoader().getResourceAsStream("db.properties");
+        InputStream inputStream = DataBaseConfiguration.class.getClassLoader()
+                .getResourceAsStream("db.properties");
 
         try {
             properties.load(inputStream);
@@ -23,7 +25,7 @@ public class DataBaseConfiguration {
                     properties.getProperty("DB_USERNAME"),
                     properties.getProperty("DB_PASSWORD"));
         } finally {
-            //Close inputStream to free up memory
+            // closing inputStream to free up memory
             if (inputStream != null) {
                 inputStream.close();
             }

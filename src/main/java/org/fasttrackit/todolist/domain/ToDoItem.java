@@ -29,16 +29,16 @@ public class ToDoItem {
         return deadline;
     }
 
+    public void setDeadline(LocalDate deadline) {
+        this.deadline = deadline;
+    }
+
     public boolean isDone() {
         return done;
     }
 
     public void setDone(boolean done) {
         this.done = done;
-    }
-
-    public void setDeadline(LocalDate deadline) {
-        this.deadline = deadline;
     }
 
     @Override

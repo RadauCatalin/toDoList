@@ -8,15 +8,18 @@ import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
 
-//DTO(DATA TRANSFER OBJECT)
 public class ToDoItemRepository {
+
     public void createToDoItem(CreateToDoItemRequest request) throws SQLException, IOException, ClassNotFoundException {
         String sql = "INSERT INTO to_do_item (description, deadline) VALUES (?, ?)";
-        //try with resources
+
+        // try-with-resources
         try (Connection connection = DataBaseConfiguration.getConnection();
              PreparedStatement preparedStatement = connection.prepareStatement(sql)) {
+
             preparedStatement.setString(1, request.getDescription());
             preparedStatement.setDate(2, Date.valueOf(request.getDeadline()));
+
             preparedStatement.executeUpdate();
         }
     }
@@ -34,13 +37,12 @@ public class ToDoItemRepository {
         }
     }
 
-    public void deleteTodoItem(long id) throws SQLException, IOException, ClassNotFoundException {
+    public void deleteToDoItem(long id) throws SQLException, IOException, ClassNotFoundException {
         String sql = "DELETE FROM to_do_item WHERE id=?";
 
         try (Connection connection = DataBaseConfiguration.getConnection();
              PreparedStatement preparedStatement = connection.prepareStatement(sql)) {
             preparedStatement.setLong(1, id);
-
             preparedStatement.executeUpdate();
         }
     }
@@ -64,7 +66,9 @@ public class ToDoItemRepository {
 
                 toDoItems.add(toDoItem);
             }
+
         }
+
         return toDoItems;
     }
 }

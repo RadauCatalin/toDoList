@@ -14,7 +14,7 @@ public class ToDoItemService {
     private ToDoItemRepository toDoItemRepository = new ToDoItemRepository();
 
     public void createToDoItem(CreateToDoItemRequest request) throws SQLException, IOException, ClassNotFoundException {
-        System.out.println("Creating to-de-item: " + request);
+        System.out.println("Creating to-do-item: " + request);
         toDoItemRepository.createToDoItem(request);
     }
 
@@ -24,8 +24,8 @@ public class ToDoItemService {
     }
 
     public void deleteToDoItem(long id) throws SQLException, IOException, ClassNotFoundException {
-        System.out.println("Deleting item: " + id);
-        toDoItemRepository.deleteTodoItem(id);
+        System.out.println("Deleting item " + id);
+        toDoItemRepository.deleteToDoItem(id);
     }
 
     public List<ToDoItem> getToDoItems() throws SQLException, IOException, ClassNotFoundException {
@@ -33,4 +33,3 @@ public class ToDoItemService {
         return toDoItemRepository.getToDoItems();
     }
 }
-
